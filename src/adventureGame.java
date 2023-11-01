@@ -15,6 +15,7 @@ public class adventureGame {
     public void chooseClass(String playerClass, String playerName) {
     classChosen = playerClass;
     name = playerName;
+    playerHealth = 100;
     if(playerClass.contains("Doctor")){
         playerAtk = 10;
         playerIntelligence = 50;
@@ -35,6 +36,9 @@ public class adventureGame {
         System.out.println("You are wandering the forest when you come across a wild wolf!");
         int attackChance = (int) (Math.random()*10) + 1;
         if (attackChance >= 5){
+            System.out.println("The wolf lunges at you! it deals 10 damage!");
+            playerHealth = playerHealth - 10;
+            System.out.println();
 
         }
 
