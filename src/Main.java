@@ -12,6 +12,21 @@ public class Main {
         String name = cahracterMaker.nextLine();
         game1.chooseClass(newClass,name);
 
+        game1.adventureStart();
+        System.out.println("What shall you do? (run or attack)");
+        Scanner move = new Scanner(System.in);
+        String movement = move.nextLine();
+        game1.setPlayerChoice(movement);
+        if(movement.contains("run away") || movement.contains("run")){
+            int chance = (int) (Math.random()*2)+1;
+            if (chance == 1){
+                System.out.println("You managed to narrowly escape with your life");
+            } else{
+                System.out.println("You try running but to no avail! You must fight, what shall you do?");
+            }
+        }
+
+
 
         }
     }

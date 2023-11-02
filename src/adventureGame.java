@@ -2,7 +2,9 @@ public class adventureGame {
     private String classChosen;
     private String name;
 
-    private String enemy;
+    private String playerChoice;
+
+    private enemy basicEnemy = new enemy();
 
     private int playerAtk;
 
@@ -16,11 +18,11 @@ public class adventureGame {
     classChosen = playerClass;
     name = playerName;
     playerHealth = 100;
-    if(playerClass.contains("Doctor")){
+    if(playerClass.contains("Doctor") || playerClass.contains("doctor")){
         playerAtk = 10;
         playerIntelligence = 50;
         playerPlagueResistance = 10;
-    } else if (playerClass.contains("Fighter")) {
+    } else if (playerClass.contains("Fighter") || playerClass.contains("fighter")) {
         playerAtk = 50;
         playerIntelligence = 10;
         playerPlagueResistance = 5;
@@ -30,17 +32,23 @@ public class adventureGame {
         playerPlagueResistance = 30;
     }
     }
+    public void setPlayerChoice(String choice){
+        playerChoice = choice;
+    }
 
     public void adventureStart(){
         System.out.println("Great! Now, lets start your adventure");
         System.out.println("You are wandering the forest when you come across a wild wolf!");
-        int attackChance = (int) (Math.random()*10) + 1;
-        if (attackChance >= 5){
-            System.out.println("The wolf lunges at you! it deals 10 damage!");
-            playerHealth = playerHealth - 10;
-            System.out.println();
+        basicEnemy.enemyBuilder();
+            int damage = basicEnemy.getEnemyDmg();
+            int enemyHealth = basicEnemy.getEnemyHp();
+            System.out.println("The wolf lunges at you! it deals " + damage + " damage!");
+            playerHealth = playerHealth-damage;
+            System.out.println("Current health: " + playerHealth);
 
-        }
+
+
+
 
     }
 }
