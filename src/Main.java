@@ -13,6 +13,7 @@ public class Main {
         game1.chooseClass(newClass,name);
 
         game1.adventureStart();
+        int playerDmg = game1.getPlayerAtk();
         System.out.println("What shall you do? (run or attack)");
         Scanner move = new Scanner(System.in);
         String movement = move.nextLine();
@@ -23,6 +24,12 @@ public class Main {
                 System.out.println("You managed to narrowly escape with your life");
             } else{
                 System.out.println("You try running but to no avail! You must fight, what shall you do?");
+            }
+        } else {
+            String choice = game1.setPlayerChoice(movement);
+            for(int i = game1.enemyHp(); i > 0; i = game1.enemyHp() - playerDmg) {
+                System.out.println("You attack the wolf with your bare hands dealing " + playerDmg + " damage");
+                System.out.println("Wolfs Hp: " + game1.enemyHp());
             }
         }
 

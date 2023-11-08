@@ -32,8 +32,18 @@ public class adventureGame {
         playerPlagueResistance = 30;
     }
     }
-    public void setPlayerChoice(String choice){
+    public String setPlayerChoice(String choice){
         playerChoice = choice;
+        return choice;
+    }
+
+    public int getPlayerAtk() {
+        return playerAtk;
+    }
+
+    public int enemyHp() {
+        int enemyHealth = basicEnemy.getEnemyHp();
+        return enemyHealth;
     }
 
     public void adventureStart(){
@@ -45,11 +55,6 @@ public class adventureGame {
             System.out.println("The wolf lunges at you! it deals " + damage + " damage!");
             playerHealth = playerHealth-damage;
             System.out.println("Current health: " + playerHealth);
-
-
-
-
-
     }
 }
 
