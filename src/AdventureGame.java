@@ -44,9 +44,25 @@ public class AdventureGame {
         return choice;
     }
 
+    public void setPlayerHealth(int hp){
+        playerHealth = hp;
+    }
+
 
     public int getPlayerAtk() {
         return playerAtk;
+    }
+
+    public int getPlayerHealth() {
+        return playerHealth;
+    }
+
+    public int getPlayerPlagueResistance() {
+        return playerPlagueResistance;
+    }
+
+    public int getPlayerIntelligence() {
+        return playerIntelligence;
     }
 
 
@@ -64,6 +80,10 @@ public class AdventureGame {
 
     public int getLootChance(){
         return basicEnemy.enemyLootChance();
+    }
+
+    public int getEnemyAtk(){
+        return basicEnemy.getEnemyDmg();
     }
 
 
