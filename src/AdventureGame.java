@@ -1,3 +1,4 @@
+
 public class AdventureGame {
     private String classChosen;
     private String name;
@@ -7,6 +8,8 @@ public class AdventureGame {
 
 
     private Enemy basicEnemy = new Enemy();
+
+    private Enemy bossFight = new Enemy();
 
 
     private int playerAtk;
@@ -88,14 +91,31 @@ public class AdventureGame {
 
 
     public void adventureStart(){
-        System.out.println("Great! Now, lets start your adventure");
-        System.out.println("You are wandering the forest when you come across a wild wolf!");
         basicEnemy.enemyBuilder();
         int damage = basicEnemy.getEnemyDmg();
         int enemyHealth = basicEnemy.getEnemyHp();
-        System.out.println("The wolf lunges at you! it deals " + damage + " damage!");
         playerHealth = playerHealth-damage;
-        System.out.println("Current health: " + playerHealth);
+    }
+
+    public void bossBuilder(){
+        bossFight.bossBuilder();;
+        int bossDmg = bossFight.getBossDmg();
+        int bossHealth = bossFight.getBossHp();
+        playerHealth = playerHealth - bossDmg;
+    }
+
+    public int getBossDmg() {
+        int damage = bossFight.getBossDmg();
+        return damage;
+    }
+
+    public int getBossHp(){
+        int health = bossFight.getBossHp();
+        return health;
+    }
+
+    public void setBossHealth(int health) {
+        bossFight.setBossHealth(health);
     }
 }
 

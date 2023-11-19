@@ -53,5 +53,9 @@ public class Enemy {
         lootChance = (int) ((Math.random()*10)+1);
         return lootChance;
     }
+
+    public void setBossHealth(int bossHealth) {
+        this.bossHealth = bossHealth;
+    }
 }
 
